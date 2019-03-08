@@ -1,7 +1,7 @@
 ---
 title: "Homework 1: ggplot2"
-author: "Your Name"
-date: "2019-03-04"
+author: "Valter Aro"
+date: "2019-03-08"
 output: github_document
 ---
 
@@ -11,6 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(ggplot2)
+mpg
 ```
 
 By using *mpg* dataset:
@@ -19,35 +20,51 @@ By using *mpg* dataset:
 
 - Color
 ```{r}
-
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, color = trans))
+#Color can be used for both continous variables and catergorical ones. With continous variables the color will be in a gradient from one extreme to the other.
 ```
 
 - Size
 ```{r}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, size = cty))
+#Size is not suitable for categorical variables, but is decent for continous variables.
 
 ```
 
 - Shape
 ```{r}
-
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, shape = trans))
+#Shape can not be used for continous variables
 ```
 
 
 2. What happens if you map the same variable to multiple aesthetics?
 
 ```{r}
-
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, color = displ))
+#Multiple aesthetics can be used for the same variable, but in most cases it does provide a better way for understanding the information.
 ```
 
 
 3. What does the stroke aesthetic do? What shapes does it work with? (Hint: use ?geom_point)
 
 ```{r}
-
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, stroke = cty, shape = trans))
+#Stroke is the size of the marker in the plot. For continous values it will be the number. It can not be used for categorical variables.
+#For shapes that have a border (like 21), you can colour the inside and for shapes that have a border (like 21), you can colour the inside and
+# outside separately. Use the stroke aesthetic to modify the width of the border
+#For shapes 20-24 stroke changes the width of the border.
 ```
 
 4. What happens if you map an aesthetic to something other than a variable name, like aes(colour = displ < 5)?
 
 ```{r}
-
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy, color = displ < 5))
+#When you map an aesthetic to a logic test it gives a TRUE or FALSE value in a given format.
 ```
