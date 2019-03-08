@@ -31,7 +31,7 @@ By using *mpg* dataset:
 
 ``` r
 ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy, color = trans))
+  geom_point(mapping = aes(x = displ, y = hwy, color = cty))
 ```
 
 ![](index_files/figure-markdown_github/unnamed-chunk-2-1.png)

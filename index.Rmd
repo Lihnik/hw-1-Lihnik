@@ -3,6 +3,7 @@ title: "Homework 1: ggplot2"
 author: "Valter Aro"
 date: "2019-03-08"
 output: github_document
+
 ---
 
 ```{r setup, include=FALSE}
@@ -21,7 +22,7 @@ By using *mpg* dataset:
 - Color
 ```{r}
 ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy, color = trans))
+  geom_point(mapping = aes(x = displ, y = hwy, color = cty))
 #Color can be used for both continous variables and catergorical ones. With continous variables the color will be in a gradient from one extreme to the other.
 ```
 
